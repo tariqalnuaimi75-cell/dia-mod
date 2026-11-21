@@ -37,15 +37,15 @@ const state = {
 const client = new Client({
     authStrategy: new LocalAuth({
         dataPath: path.join(__dirname, '.wwebjs_auth'),
-        clientId: 'whatsapp-bot-session'
+                clientId: 'whatsapp-bot-session'
     }),
     puppeteer: {
         headless: true,
         args: ['--no-sandbox'],
-   timeout: 60000
-},
-      }
+        timeout: 60000,
+    }
 });
+
 
 // Export the client instance to allow external QR regeneration
 exports.client = client;
