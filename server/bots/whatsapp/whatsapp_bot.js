@@ -41,8 +41,10 @@ const client = new Client({
     }),
     puppeteer: {
         headless: true,
-        args: ['--no-sandbox']
-    }
+        args: ['--no-sandbox'],
+   timeout: 60000
+},
+      }
 });
 
 // Export the client instance to allow external QR regeneration
