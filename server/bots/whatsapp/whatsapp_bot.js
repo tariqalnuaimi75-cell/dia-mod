@@ -42,7 +42,7 @@ const client = new Client({
     puppeteer: {
         headless: true,
         args: ['--no-sandbox'],
-        timeout: 60000,
+        timeout: 90000,
     }
 });
 
