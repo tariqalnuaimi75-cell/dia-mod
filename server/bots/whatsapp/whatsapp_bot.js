@@ -50,14 +50,15 @@ const client = new Client({
 // Export the client instance to allow external QR regeneration
 exports.client = client;
 
+client.on('qr', (qr) => {
+  qrcode.generate(qr, { small: true });
+  console.log('QR received');
+});
+
 // Add this function to handle QR code regeneration
 exports.regenerateQR = async () => {
-    try {
-        // Attempt to destroy the current session
-        await client.destroy();
-        console.log("WhatsApp session destroyed successfully");
-        
-        // Reinitialize the client to generate a new QR code
+  try {
+
         client.initialize().catch((error) => {
             console.error('Error reinitializing client:', error);
         });
